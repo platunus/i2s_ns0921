@@ -1,0 +1,860 @@
+TimeQuest Timing Analyzer report for i2s_ns0921
+Fri Jul 16 09:28:06 2021
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'I2C_to_GPIO:i2c|sclk'
+ 12. Setup: 'bck_m'
+ 13. Setup: 'mclk_in'
+ 14. Setup: 'I2C_to_GPIO:i2c|sda'
+ 15. Hold: 'mclk_in'
+ 16. Hold: 'I2C_to_GPIO:i2c|sclk'
+ 17. Hold: 'I2C_to_GPIO:i2c|sda'
+ 18. Hold: 'bck_m'
+ 19. Recovery: 'I2C_to_GPIO:i2c|sda'
+ 20. Removal: 'I2C_to_GPIO:i2c|sda'
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Recovery Transfers
+ 24. Removal Transfers
+ 25. Report TCCS
+ 26. Report RSKM
+ 27. Unconstrained Paths Summary
+ 28. Clock Status Summary
+ 29. Unconstrained Input Ports
+ 30. Unconstrained Output Ports
+ 31. Unconstrained Input Ports
+ 32. Unconstrained Output Ports
+ 33. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                           ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
+; Timing Analyzer       ; TimeQuest                                           ;
+; Revision Name         ; i2s_ns0921                                          ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM240T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                     ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; Clock Name           ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                  ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; bck_m                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { bck_m }                ;
+; I2C_to_GPIO:i2c|sclk ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { I2C_to_GPIO:i2c|sclk } ;
+; I2C_to_GPIO:i2c|sda  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { I2C_to_GPIO:i2c|sda }  ;
+; mclk_in              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { mclk_in }              ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+
+
++------------------------------------------------------------+
+; Fmax Summary                                               ;
++------------+-----------------+----------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name           ; Note ;
++------------+-----------------+----------------------+------+
+; 75.48 MHz  ; 75.48 MHz       ; I2C_to_GPIO:i2c|sclk ;      ;
+; 161.37 MHz ; 161.37 MHz      ; bck_m                ;      ;
+; 184.67 MHz ; 184.67 MHz      ; mclk_in              ;      ;
++------------+-----------------+----------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------+
+; Setup Summary                                 ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; I2C_to_GPIO:i2c|sclk ; -6.924 ; -169.880      ;
+; bck_m                ; -5.197 ; -32.930       ;
+; mclk_in              ; -4.415 ; -26.150       ;
+; I2C_to_GPIO:i2c|sda  ; 0.702  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++-----------------------------------------------+
+; Hold Summary                                  ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; mclk_in              ; -1.598 ; -4.299        ;
+; I2C_to_GPIO:i2c|sclk ; -1.170 ; -7.792        ;
+; I2C_to_GPIO:i2c|sda  ; -0.796 ; -1.552        ;
+; bck_m                ; 2.131  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++----------------------------------------------+
+; Recovery Summary                             ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; I2C_to_GPIO:i2c|sda ; -2.261 ; -3.838        ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Removal Summary                             ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; I2C_to_GPIO:i2c|sda ; 2.023 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++-----------------------------------------------+
+; Minimum Pulse Width Summary                   ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; mclk_in              ; -2.289 ; -2.289        ;
+; I2C_to_GPIO:i2c|sclk ; 0.234  ; 0.000         ;
+; I2C_to_GPIO:i2c|sda  ; 0.234  ; 0.000         ;
+; bck_m                ; 0.234  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'I2C_to_GPIO:i2c|sclk'                                                                                                                                       ;
++--------+---------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+; Slack  ; From Node                       ; To Node                           ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.924 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.591      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.840 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.507      ;
+; -6.618 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.285      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.558 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.225      ;
+; -6.539 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.206      ;
+; -6.534 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.201      ;
+; -6.504 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.171      ;
+; -6.455 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.122      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.343 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 7.010      ;
+; -6.252 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.919      ;
+; -6.173 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.840      ;
+; -6.147 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.814      ;
+; -6.124 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.791      ;
+; -6.124 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 6.291      ;
+; -6.117 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.784      ;
+; -6.115 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.782      ;
+; -6.108 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.775      ;
+; -6.088 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.755      ;
+; -6.087 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.754      ;
+; -6.040 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 6.207      ;
+; -6.037 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.704      ;
+; -5.958 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.625      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.781 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.448      ;
+; -5.758 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.925      ;
+; -5.699 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.866      ;
+; -5.665 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.332      ;
+; -5.660 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.327      ;
+; -5.582 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.749      ;
+; -5.551 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.718      ;
+; -5.543 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.710      ;
+; -5.507 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.174      ;
+; -5.497 ; I2C_to_GPIO:i2c|read_oper       ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.164      ;
+; -5.484 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.651      ;
+; -5.452 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.619      ;
+; -5.451 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.618      ;
+; -5.430 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.597      ;
+; -5.396 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.063      ;
+; -5.395 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.562      ;
+; -5.368 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.535      ;
+; -5.361 ; I2C_to_GPIO:i2c|add_is_matching ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 6.028      ;
+; -5.357 ; I2C_to_GPIO:i2c|count[2]        ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.524      ;
+; -5.357 ; I2C_to_GPIO:i2c|start_stop      ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.524      ;
+; -5.346 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.513      ;
+; -5.314 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.481      ;
+; -5.313 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.480      ;
+; -5.308 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.975      ;
+; -5.285 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.952      ;
+; -5.278 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.945      ;
+; -5.276 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.943      ;
+; -5.269 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.936      ;
+; -5.249 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.916      ;
+; -5.248 ; I2C_to_GPIO:i2c|done            ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.915      ;
+; -5.239 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.406      ;
+; -5.225 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.392      ;
+; -5.225 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.392      ;
+; -5.219 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.386      ;
+; -5.206 ; I2C_to_GPIO:i2c|count[0]        ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.373      ;
+; -5.202 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.369      ;
+; -5.195 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.362      ;
+; -5.194 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.861      ;
+; -5.194 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.361      ;
+; -5.193 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.360      ;
+; -5.192 ; I2C_to_GPIO:i2c|count[1]        ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.359      ;
+; -5.186 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.353      ;
+; -5.171 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.338      ;
+; -5.166 ; I2C_to_GPIO:i2c|count[3]        ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.333      ;
+; -5.164 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.331      ;
+; -5.162 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.329      ;
+; -5.155 ; I2C_to_GPIO:i2c|repeat_start    ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.500        ; 0.000      ; 5.322      ;
+; -5.145 ; I2C_to_GPIO:i2c|data_or_address ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 1.000        ; 0.000      ; 5.812      ;
++--------+---------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'bck_m'                                                                                                                        ;
++--------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node       ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+; -5.197 ; count_lrck[2]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.864      ;
+; -5.192 ; count_lrck[2]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.859      ;
+; -5.190 ; count_lrck[2]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.857      ;
+; -5.175 ; count_lrck[0]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.842      ;
+; -5.096 ; count_lrck[0]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.763      ;
+; -5.056 ; count_lrck[4]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.723      ;
+; -5.051 ; count_lrck[4]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.718      ;
+; -5.049 ; count_lrck[4]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.716      ;
+; -4.933 ; count_lrck[5]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.600      ;
+; -4.928 ; count_lrck[5]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.595      ;
+; -4.926 ; count_lrck[5]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.593      ;
+; -4.824 ; count_lrck[0]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.491      ;
+; -4.819 ; count_lrck[2]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.486      ;
+; -4.801 ; count_lrck[2]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.468      ;
+; -4.678 ; count_lrck[1]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.345      ;
+; -4.660 ; count_lrck[4]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.327      ;
+; -4.651 ; count_lrck[4]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.318      ;
+; -4.599 ; count_lrck[1]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.266      ;
+; -4.576 ; count_lrck[0]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.243      ;
+; -4.550 ; count_lrck[3]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.217      ;
+; -4.537 ; count_lrck[5]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.204      ;
+; -4.528 ; count_lrck[5]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.195      ;
+; -4.497 ; count_lrck[0]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.164      ;
+; -4.471 ; count_lrck[3]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 5.138      ;
+; -4.079 ; count_lrck[1]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.746      ;
+; -3.949 ; count_lrck[3]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.616      ;
+; -3.947 ; count_lrck[3]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.614      ;
+; -3.873 ; count_lrck[1]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.540      ;
+; -3.833 ; count_lrck[0]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.500      ;
+; -3.558 ; count_lrck[3]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.225      ;
+; -3.547 ; lrck_m                         ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.214      ;
+; -3.542 ; lrck_m                         ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.209      ;
+; -3.482 ; count_lrck[1]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.149      ;
+; -3.477 ; count_lrck[2]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.144      ;
+; -3.371 ; count_lrck[1]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.038      ;
+; -3.336 ; count_lrck[1]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 4.003      ;
+; -3.293 ; count_lrck[2]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 3.960      ;
+; -3.152 ; count_lrck[4]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 3.819      ;
+; -3.029 ; count_lrck[5]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 3.696      ;
+; -2.588 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[0] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.768      ;
+; -2.444 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[4] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.624      ;
+; -2.440 ; count_lrck[3]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 3.107      ;
+; -2.438 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[1] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.618      ;
+; -2.437 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[2] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.617      ;
+; -2.200 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[0] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.380      ;
+; -2.186 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[5] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.366      ;
+; -2.154 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[4] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.334      ;
+; -2.148 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[1] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.328      ;
+; -2.146 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[2] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.326      ;
+; -2.076 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[5] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; 0.500        ; 0.013      ; 2.256      ;
+; -2.050 ; count_lrck[3]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 2.717      ;
+; -1.685 ; count_lrck[0]                  ; lrck_m        ; bck_m                ; bck_m       ; 1.000        ; 0.000      ; 2.352      ;
++--------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'mclk_in'                                                                                                                                    ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                     ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+; -4.415 ; count_bck[1]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 5.082      ;
+; -4.216 ; count_bck[2]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 4.883      ;
+; -4.049 ; count_bck[3]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 4.716      ;
+; -4.031 ; count_bck[0]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 4.698      ;
+; -3.846 ; count_bck[1]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 4.513      ;
+; -3.678 ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 4.044      ;
+; -3.325 ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.691      ;
+; -3.300 ; count_bck[2]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.967      ;
+; -3.293 ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.659      ;
+; -3.282 ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.648      ;
+; -3.263 ; count_bck[3]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.930      ;
+; -3.204 ; count_bck[2]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.871      ;
+; -3.133 ; count_bck[3]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.800      ;
+; -3.022 ; count_bck[1]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.689      ;
+; -3.011 ; count_bck[1]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.678      ;
+; -2.938 ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.304      ;
+; -2.930 ; count_bck[1]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.597      ;
+; -2.927 ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.293      ;
+; -2.864 ; count_bck[2]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.531      ;
+; -2.853 ; count_bck[2]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.520      ;
+; -2.792 ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[1]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 3.158      ;
+; -2.731 ; count_bck[0]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.398      ;
+; -2.608 ; count_bck[0]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.275      ;
+; -2.507 ; count_bck[3]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.174      ;
+; -2.496 ; count_bck[3]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 3.163      ;
+; -2.165 ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 2.531      ;
+; -2.162 ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 2.528      ;
+; -2.153 ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 2.519      ;
+; -2.092 ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[1]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; -0.301     ; 2.458      ;
+; -1.887 ; I2C_to_GPIO:i2c|sclk_reg[0]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.554      ;
+; -1.795 ; I2C_to_GPIO:i2c|sda_reg[0]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.462      ;
+; -1.761 ; count_bck[0]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.428      ;
+; -1.748 ; count_bck[0]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.415      ;
+; -1.683 ; I2C_to_GPIO:i2c|sclk_reg[1]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.350      ;
+; -1.492 ; I2C_to_GPIO:i2c|sda_reg[1]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.159      ;
+; -1.364 ; I2C_to_GPIO:i2c|sclk_reg[0]    ; I2C_to_GPIO:i2c|sclk_reg[1] ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 2.031      ;
+; -1.199 ; I2C_to_GPIO:i2c|sclk_reg[2]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 1.866      ;
+; -1.195 ; I2C_to_GPIO:i2c|sda_reg[2]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 1.862      ;
+; -0.964 ; I2C_to_GPIO:i2c|sda_reg[1]     ; I2C_to_GPIO:i2c|sda_reg[2]  ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 1.631      ;
+; -0.955 ; I2C_to_GPIO:i2c|sclk_reg[1]    ; I2C_to_GPIO:i2c|sclk_reg[2] ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 1.622      ;
+; -0.950 ; I2C_to_GPIO:i2c|sda_reg[0]     ; I2C_to_GPIO:i2c|sda_reg[1]  ; mclk_in              ; mclk_in     ; 1.000        ; 0.000      ; 1.617      ;
+; 1.135  ; bck_m                          ; bck_m                       ; bck_m                ; mclk_in     ; 0.500        ; 3.348      ; 2.756      ;
+; 1.458  ; I2C_to_GPIO:i2c|sclk           ; I2C_to_GPIO:i2c|sclk        ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.500        ; 3.348      ; 2.433      ;
+; 1.544  ; I2C_to_GPIO:i2c|sda            ; I2C_to_GPIO:i2c|sda         ; I2C_to_GPIO:i2c|sda  ; mclk_in     ; 0.500        ; 3.348      ; 2.347      ;
+; 1.635  ; bck_m                          ; bck_m                       ; bck_m                ; mclk_in     ; 1.000        ; 3.348      ; 2.756      ;
+; 1.958  ; I2C_to_GPIO:i2c|sclk           ; I2C_to_GPIO:i2c|sclk        ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 1.000        ; 3.348      ; 2.433      ;
+; 2.044  ; I2C_to_GPIO:i2c|sda            ; I2C_to_GPIO:i2c|sda         ; I2C_to_GPIO:i2c|sda  ; mclk_in     ; 1.000        ; 3.348      ; 2.347      ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'I2C_to_GPIO:i2c|sda'                                                                                                               ;
++-------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack ; From Node            ; To Node               ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; 0.702 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.500        ; 4.392      ; 4.233      ;
+; 0.742 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.500        ; 4.392      ; 4.193      ;
+; 1.202 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 1.000        ; 4.392      ; 4.233      ;
+; 1.242 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 1.000        ; 4.392      ; 4.193      ;
++-------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'mclk_in'                                                                                                                                     ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                     ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+; -1.598 ; I2C_to_GPIO:i2c|sda            ; I2C_to_GPIO:i2c|sda         ; I2C_to_GPIO:i2c|sda  ; mclk_in     ; 0.000        ; 3.348      ; 2.347      ;
+; -1.512 ; I2C_to_GPIO:i2c|sclk           ; I2C_to_GPIO:i2c|sclk        ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; 3.348      ; 2.433      ;
+; -1.189 ; bck_m                          ; bck_m                       ; bck_m                ; mclk_in     ; 0.000        ; 3.348      ; 2.756      ;
+; -1.098 ; I2C_to_GPIO:i2c|sda            ; I2C_to_GPIO:i2c|sda         ; I2C_to_GPIO:i2c|sda  ; mclk_in     ; -0.500       ; 3.348      ; 2.347      ;
+; -1.012 ; I2C_to_GPIO:i2c|sclk           ; I2C_to_GPIO:i2c|sclk        ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; -0.500       ; 3.348      ; 2.433      ;
+; -0.689 ; bck_m                          ; bck_m                       ; bck_m                ; mclk_in     ; -0.500       ; 3.348      ; 2.756      ;
+; 1.396  ; I2C_to_GPIO:i2c|sda_reg[0]     ; I2C_to_GPIO:i2c|sda_reg[1]  ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 1.617      ;
+; 1.401  ; I2C_to_GPIO:i2c|sclk_reg[1]    ; I2C_to_GPIO:i2c|sclk_reg[2] ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 1.622      ;
+; 1.410  ; I2C_to_GPIO:i2c|sda_reg[1]     ; I2C_to_GPIO:i2c|sda_reg[2]  ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 1.631      ;
+; 1.641  ; I2C_to_GPIO:i2c|sda_reg[2]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 1.862      ;
+; 1.645  ; I2C_to_GPIO:i2c|sclk_reg[2]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 1.866      ;
+; 1.810  ; I2C_to_GPIO:i2c|sclk_reg[0]    ; I2C_to_GPIO:i2c|sclk_reg[1] ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.031      ;
+; 1.938  ; I2C_to_GPIO:i2c|sda_reg[1]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.159      ;
+; 2.129  ; I2C_to_GPIO:i2c|sclk_reg[1]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.350      ;
+; 2.194  ; count_bck[0]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.415      ;
+; 2.207  ; count_bck[0]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.428      ;
+; 2.241  ; I2C_to_GPIO:i2c|sda_reg[0]     ; I2C_to_GPIO:i2c|sda         ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.462      ;
+; 2.333  ; I2C_to_GPIO:i2c|sclk_reg[0]    ; I2C_to_GPIO:i2c|sclk        ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 2.554      ;
+; 2.538  ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[1]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 2.458      ;
+; 2.599  ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 2.519      ;
+; 2.608  ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 2.528      ;
+; 2.611  ; I2C_to_GPIO:i2c|GPIO_output[4] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 2.531      ;
+; 2.942  ; count_bck[3]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.163      ;
+; 2.953  ; count_bck[3]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.174      ;
+; 2.958  ; count_bck[0]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.179      ;
+; 3.054  ; count_bck[0]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.275      ;
+; 3.238  ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[1]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.158      ;
+; 3.280  ; count_bck[1]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.501      ;
+; 3.290  ; count_bck[1]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.511      ;
+; 3.299  ; count_bck[2]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.520      ;
+; 3.310  ; count_bck[2]                   ; count_bck[1]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.531      ;
+; 3.373  ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.293      ;
+; 3.376  ; count_bck[1]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.597      ;
+; 3.384  ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.304      ;
+; 3.387  ; I2C_to_GPIO:i2c|GPIO_output[3] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.307      ;
+; 3.457  ; count_bck[1]                   ; count_bck[0]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.678      ;
+; 3.483  ; count_bck[3]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.704      ;
+; 3.528  ; count_bck[2]                   ; count_bck[3]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.749      ;
+; 3.579  ; count_bck[3]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.800      ;
+; 3.728  ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[0]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.648      ;
+; 3.739  ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[3]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.659      ;
+; 3.742  ; I2C_to_GPIO:i2c|GPIO_output[2] ; count_bck[2]                ; I2C_to_GPIO:i2c|sclk ; mclk_in     ; 0.000        ; -0.301     ; 3.662      ;
+; 3.746  ; count_bck[2]                   ; bck_m                       ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 3.967      ;
+; 3.821  ; count_bck[2]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 4.042      ;
+; 3.970  ; count_bck[0]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 4.191      ;
+; 3.981  ; count_bck[1]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 4.202      ;
+; 4.495  ; count_bck[3]                   ; count_bck[2]                ; mclk_in              ; mclk_in     ; 0.000        ; 0.000      ; 4.716      ;
++--------+--------------------------------+-----------------------------+----------------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'I2C_to_GPIO:i2c|sclk'                                                                                                                                          ;
++--------+-----------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                           ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+; -1.170 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.076      ;
+; -0.960 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.286      ;
+; -0.848 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.398      ;
+; -0.846 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.400      ;
+; -0.836 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.410      ;
+; -0.827 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.419      ;
+; -0.762 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.484      ;
+; -0.721 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.525      ;
+; -0.670 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.076      ;
+; -0.519 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.727      ;
+; -0.460 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.286      ;
+; -0.348 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.398      ;
+; -0.346 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.400      ;
+; -0.336 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.410      ;
+; -0.327 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.419      ;
+; -0.303 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 3.649      ; 3.943      ;
+; -0.262 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.484      ;
+; -0.221 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.525      ;
+; -0.019 ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.727      ;
+; 0.197  ; I2C_to_GPIO:i2c|sda               ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 3.649      ; 3.943      ;
+; 1.645  ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 1.866      ;
+; 1.675  ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 1.896      ;
+; 1.723  ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 1.944      ;
+; 1.898  ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.119      ;
+; 1.913  ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.134      ;
+; 1.918  ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.139      ;
+; 1.926  ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.147      ;
+; 1.958  ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.179      ;
+; 2.108  ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.329      ;
+; 2.120  ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.341      ;
+; 2.166  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.387      ;
+; 2.171  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.392      ;
+; 2.180  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|repeat_start      ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.401      ;
+; 2.191  ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.412      ;
+; 2.212  ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.433      ;
+; 2.216  ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.437      ;
+; 2.232  ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.453      ;
+; 2.249  ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.470      ;
+; 2.251  ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.472      ;
+; 2.271  ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.492      ;
+; 2.283  ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.504      ;
+; 2.297  ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.518      ;
+; 2.313  ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.534      ;
+; 2.376  ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.597      ;
+; 2.463  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 1.941      ;
+; 2.609  ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.830      ;
+; 2.645  ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.866      ;
+; 2.652  ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.873      ;
+; 2.719  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.940      ;
+; 2.727  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 2.948      ;
+; 2.868  ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.089      ;
+; 2.928  ; I2C_to_GPIO:i2c|stop              ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; -0.743     ; 1.906      ;
+; 2.938  ; I2C_to_GPIO:i2c|stop              ; I2C_to_GPIO:i2c|repeat_start      ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; -0.743     ; 1.916      ;
+; 2.939  ; I2C_to_GPIO:i2c|stop              ; I2C_to_GPIO:i2c|reset             ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; -0.500       ; -0.743     ; 1.917      ;
+; 2.939  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 2.417      ;
+; 2.970  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 2.448      ;
+; 3.049  ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 2.770      ;
+; 3.207  ; I2C_to_GPIO:i2c|reset             ; I2C_to_GPIO:i2c|reset             ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.428      ;
+; 3.294  ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|GPIO_input_reg[6] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.015      ;
+; 3.307  ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.528      ;
+; 3.347  ; I2C_to_GPIO:i2c|GPIO_output[0]    ; I2C_to_GPIO:i2c|GPIO_input_reg[0] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.068      ;
+; 3.357  ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.578      ;
+; 3.365  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.586      ;
+; 3.444  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.665      ;
+; 3.506  ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.727      ;
+; 3.568  ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.789      ;
+; 3.646  ; I2C_to_GPIO:i2c|GPIO_output[5]    ; I2C_to_GPIO:i2c|GPIO_input_reg[5] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.367      ;
+; 3.670  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 3.148      ;
+; 3.767  ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.988      ;
+; 3.770  ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 3.991      ;
+; 3.800  ; I2C_to_GPIO:i2c|add_is_matching   ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.521      ;
+; 3.811  ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.032      ;
+; 3.879  ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|GPIO_input_reg[1] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.600      ;
+; 3.891  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|reset             ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 3.369      ;
+; 3.893  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|repeat_start      ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 3.371      ;
+; 3.898  ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|GPIO_output[6]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.119      ;
+; 3.901  ; I2C_to_GPIO:i2c|start             ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 0.000        ; -0.743     ; 3.379      ;
+; 3.977  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.198      ;
+; 3.977  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.198      ;
+; 3.977  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.198      ;
+; 3.977  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.198      ;
+; 3.981  ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|reset             ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.702      ;
+; 3.983  ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|repeat_start      ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.704      ;
+; 3.989  ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.710      ;
+; 4.025  ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.746      ;
+; 4.145  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|GPIO_output[7]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.866      ;
+; 4.155  ; I2C_to_GPIO:i2c|count[1]          ; I2C_to_GPIO:i2c|count[3]          ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.376      ;
+; 4.178  ; I2C_to_GPIO:i2c|GPIO_output[3]    ; I2C_to_GPIO:i2c|GPIO_input_reg[3] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 3.899      ;
+; 4.284  ; I2C_to_GPIO:i2c|count[0]          ; I2C_to_GPIO:i2c|GPIO_output[1]    ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.005      ;
+; 4.340  ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.061      ;
+; 4.343  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.064      ;
+; 4.350  ; I2C_to_GPIO:i2c|GPIO_output[4]    ; I2C_to_GPIO:i2c|GPIO_input_reg[4] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.071      ;
+; 4.358  ; I2C_to_GPIO:i2c|repeat_start      ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.079      ;
+; 4.370  ; I2C_to_GPIO:i2c|GPIO_input_reg[7] ; I2C_to_GPIO:i2c|sda_out~en        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 0.000        ; 0.000      ; 4.591      ;
+; 4.393  ; I2C_to_GPIO:i2c|count[2]          ; I2C_to_GPIO:i2c|read_oper         ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.114      ;
+; 4.426  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|write_flag        ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.147      ;
+; 4.426  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|data_or_address   ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.147      ;
+; 4.435  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|done              ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.156      ;
+; 4.435  ; I2C_to_GPIO:i2c|start_stop        ; I2C_to_GPIO:i2c|some_other_device ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.156      ;
+; 4.551  ; I2C_to_GPIO:i2c|GPIO_output[2]    ; I2C_to_GPIO:i2c|GPIO_input_reg[2] ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; -0.500       ; 0.000      ; 4.272      ;
++--------+-----------------------------------+-----------------------------------+----------------------+----------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'I2C_to_GPIO:i2c|sda'                                                                                                                 ;
++--------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node               ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; -0.796 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.000        ; 4.392      ; 4.193      ;
+; -0.756 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.000        ; 4.392      ; 4.233      ;
+; -0.296 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; -0.500       ; 4.392      ; 4.193      ;
+; -0.256 ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; -0.500       ; 4.392      ; 4.233      ;
++--------+----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'bck_m'                                                                                                                        ;
++-------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node       ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+; 2.131 ; count_lrck[0]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 2.352      ;
+; 2.496 ; count_lrck[3]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 2.717      ;
+; 2.522 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[5] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.256      ;
+; 2.592 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[2] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.326      ;
+; 2.594 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[1] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.328      ;
+; 2.600 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[4] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.334      ;
+; 2.632 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[5] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.366      ;
+; 2.646 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[0] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.380      ;
+; 2.883 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[2] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.617      ;
+; 2.884 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[1] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.618      ;
+; 2.886 ; count_lrck[3]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.107      ;
+; 2.890 ; I2C_to_GPIO:i2c|GPIO_output[6] ; count_lrck[4] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.624      ;
+; 3.034 ; I2C_to_GPIO:i2c|GPIO_output[5] ; count_lrck[0] ; I2C_to_GPIO:i2c|sclk ; bck_m       ; -0.500       ; 0.013      ; 2.768      ;
+; 3.475 ; count_lrck[5]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.696      ;
+; 3.598 ; count_lrck[4]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.819      ;
+; 3.696 ; count_lrck[5]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.917      ;
+; 3.704 ; count_lrck[0]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.925      ;
+; 3.713 ; count_lrck[0]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.934      ;
+; 3.739 ; count_lrck[2]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.960      ;
+; 3.744 ; count_lrck[4]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.965      ;
+; 3.755 ; count_lrck[1]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 3.976      ;
+; 3.817 ; count_lrck[1]                  ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.038      ;
+; 3.907 ; count_lrck[2]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.128      ;
+; 3.910 ; count_lrck[2]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.131      ;
+; 3.919 ; count_lrck[1]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.140      ;
+; 3.928 ; count_lrck[1]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.149      ;
+; 3.988 ; lrck_m                         ; lrck_m        ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.209      ;
+; 3.993 ; lrck_m                         ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.214      ;
+; 3.995 ; count_lrck[3]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.216      ;
+; 4.004 ; count_lrck[3]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.225      ;
+; 4.074 ; count_lrck[1]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.295      ;
+; 4.102 ; count_lrck[0]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.323      ;
+; 4.104 ; count_lrck[0]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.325      ;
+; 4.109 ; count_lrck[0]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.330      ;
+; 4.240 ; count_lrck[0]                  ; count_lrck[3] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.461      ;
+; 4.317 ; count_lrck[1]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.538      ;
+; 4.324 ; count_lrck[1]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.545      ;
+; 4.393 ; count_lrck[3]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.614      ;
+; 4.395 ; count_lrck[3]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.616      ;
+; 4.400 ; count_lrck[3]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.621      ;
+; 4.630 ; count_lrck[4]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 4.851      ;
+; 4.983 ; count_lrck[5]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.204      ;
+; 5.106 ; count_lrck[4]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.327      ;
+; 5.172 ; count_lrck[2]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.393      ;
+; 5.238 ; count_lrck[2]                  ; count_lrck[5] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.459      ;
+; 5.247 ; count_lrck[2]                  ; count_lrck[0] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.468      ;
+; 5.372 ; count_lrck[5]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.593      ;
+; 5.374 ; count_lrck[5]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.595      ;
+; 5.379 ; count_lrck[5]                  ; count_lrck[4] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.600      ;
+; 5.495 ; count_lrck[4]                  ; count_lrck[2] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.716      ;
+; 5.497 ; count_lrck[4]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.718      ;
+; 5.638 ; count_lrck[2]                  ; count_lrck[1] ; bck_m                ; bck_m       ; 0.000        ; 0.000      ; 5.859      ;
++-------+--------------------------------+---------------+----------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'I2C_to_GPIO:i2c|sda'                                                                                                              ;
++--------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack  ; From Node             ; To Node               ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; -2.261 ; I2C_to_GPIO:i2c|reset ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.500        ; 0.743      ; 3.171      ;
+; -1.577 ; I2C_to_GPIO:i2c|reset ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 1.000        ; 0.743      ; 2.987      ;
++--------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'I2C_to_GPIO:i2c|sda'                                                                                                              ;
++-------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack ; From Node             ; To Node               ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+; 2.023 ; I2C_to_GPIO:i2c|reset ; I2C_to_GPIO:i2c|start ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0.000        ; 0.743      ; 2.987      ;
+; 2.707 ; I2C_to_GPIO:i2c|reset ; I2C_to_GPIO:i2c|stop  ; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; -0.500       ; 0.743      ; 3.171      ;
++-------+-----------------------+-----------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Setup Transfers                                                                         ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; bck_m                ; bck_m                ; 0        ; 0        ; 0        ; 72       ;
+; I2C_to_GPIO:i2c|sclk ; bck_m                ; 0        ; 0        ; 10       ; 0        ;
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 49       ; 120      ; 40       ; 115      ;
+; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 11       ; 11       ; 3        ; 11       ;
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda  ; 1        ; 1        ; 1        ; 1        ;
+; bck_m                ; mclk_in              ; 1        ; 1        ; 0        ; 0        ;
+; I2C_to_GPIO:i2c|sclk ; mclk_in              ; 14       ; 1        ; 0        ; 0        ;
+; I2C_to_GPIO:i2c|sda  ; mclk_in              ; 1        ; 1        ; 0        ; 0        ;
+; mclk_in              ; mclk_in              ; 38       ; 0        ; 0        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Hold Transfers                                                                          ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; bck_m                ; bck_m                ; 0        ; 0        ; 0        ; 72       ;
+; I2C_to_GPIO:i2c|sclk ; bck_m                ; 0        ; 0        ; 10       ; 0        ;
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; 49       ; 120      ; 40       ; 115      ;
+; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sclk ; 11       ; 11       ; 3        ; 11       ;
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda  ; 1        ; 1        ; 1        ; 1        ;
+; bck_m                ; mclk_in              ; 1        ; 1        ; 0        ; 0        ;
+; I2C_to_GPIO:i2c|sclk ; mclk_in              ; 14       ; 1        ; 0        ; 0        ;
+; I2C_to_GPIO:i2c|sda  ; mclk_in              ; 1        ; 1        ; 0        ; 0        ;
+; mclk_in              ; mclk_in              ; 38       ; 0        ; 0        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                     ;
++----------------------+---------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+---------------------+----------+----------+----------+----------+
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0        ; 1        ; 0        ; 1        ;
++----------------------+---------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------+
+; Removal Transfers                                                                      ;
++----------------------+---------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+---------------------+----------+----------+----------+----------+
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sda ; 0        ; 1        ; 0        ; 1        ;
++----------------------+---------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 3     ; 3    ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 7     ; 7    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------+
+; Clock Status Summary                                             ;
++----------------------+----------------------+------+-------------+
+; Target               ; Clock                ; Type ; Status      ;
++----------------------+----------------------+------+-------------+
+; I2C_to_GPIO:i2c|sclk ; I2C_to_GPIO:i2c|sclk ; Base ; Constrained ;
+; I2C_to_GPIO:i2c|sda  ; I2C_to_GPIO:i2c|sda  ; Base ; Constrained ;
+; bck_m                ; bck_m                ; Base ; Constrained ;
+; mclk_in              ; mclk_in              ; Base ; Constrained ;
++----------------------+----------------------+------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                          ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                                                               ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; mclk_in    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found. This port has clock assignment. ;
+; sclk       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
+; sda        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; bck         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; lrck        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mclk        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sda         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                          ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                                                               ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+; mclk_in    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found. This port has clock assignment. ;
+; sclk       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
+; sda        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found                                  ;
++------------+-----------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; bck         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; lrck        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mclk        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sda         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime TimeQuest Timing Analyzer
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+    Info: Processing started: Fri Jul 16 09:28:03 2021
+Info: Command: quartus_sta i2s_ns0921 -c i2s_ns0921
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'i2s_ns0921.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name I2C_to_GPIO:i2c|sclk I2C_to_GPIO:i2c|sclk
+    Info (332105): create_clock -period 1.000 -name mclk_in mclk_in
+    Info (332105): create_clock -period 1.000 -name bck_m bck_m
+    Info (332105): create_clock -period 1.000 -name I2C_to_GPIO:i2c|sda I2C_to_GPIO:i2c|sda
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -6.924
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.924            -169.880 I2C_to_GPIO:i2c|sclk 
+    Info (332119):    -5.197             -32.930 bck_m 
+    Info (332119):    -4.415             -26.150 mclk_in 
+    Info (332119):     0.702               0.000 I2C_to_GPIO:i2c|sda 
+Info (332146): Worst-case hold slack is -1.598
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.598              -4.299 mclk_in 
+    Info (332119):    -1.170              -7.792 I2C_to_GPIO:i2c|sclk 
+    Info (332119):    -0.796              -1.552 I2C_to_GPIO:i2c|sda 
+    Info (332119):     2.131               0.000 bck_m 
+Info (332146): Worst-case recovery slack is -2.261
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.261              -3.838 I2C_to_GPIO:i2c|sda 
+Info (332146): Worst-case removal slack is 2.023
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.023               0.000 I2C_to_GPIO:i2c|sda 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 mclk_in 
+    Info (332119):     0.234               0.000 I2C_to_GPIO:i2c|sclk 
+    Info (332119):     0.234               0.000 I2C_to_GPIO:i2c|sda 
+    Info (332119):     0.234               0.000 bck_m 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 943 megabytes
+    Info: Processing ended: Fri Jul 16 09:28:06 2021
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

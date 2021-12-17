@@ -1,0 +1,23 @@
+Quartus II Archive log --	/home/naoki/altera/i2s_ns0921/i2s_ns0921_tmp_archive.qarlog
+
+Archive:	/home/naoki/altera/i2s_ns0921/i2s_ns0921_tmp_archive.qar
+Date:		Tue Jul 17 17:19:43 2018
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+/home/naoki/altera/i2s_ns0921/I2C_to_GPIO.v
+/home/naoki/altera/i2s_ns0921/i2s_ns0921.qpf
+/home/naoki/altera/i2s_ns0921/i2s_ns0921.qsf
+/home/naoki/altera/i2s_ns0921/i2s_ns0921.v
+/home/naoki/altera/i2s_ns0921/incremental_db/compiled_partitions/i2s_ns0921.db_info
+/opt/altera/quartus/linux64/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Jul 17 17:19:45 2018
+Source archive file:	/home/naoki/altera/i2s_ns0921/i2s_ns0921_tmp_archive.qar
+Archive was extracted into	/home/naoki/altera/i2s_ak4490/
+		 - successfully.
