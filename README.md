@@ -1,1 +1,1 @@
-# Clock divider of I2S of Raspberry Pi for Altera CPLD MAX II
+# Clock divider of Raspberry Pi's I2S for Altera CPLD MAX II
